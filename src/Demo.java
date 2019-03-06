@@ -14,23 +14,31 @@ public class Demo{
         Double [][] image = new Double[img.rows()][img.cols()];
         for (int i = 0; i <img.rows() ; i++) {
             for (int j = 0; j <img.cols() ; j++) {
-                image[i][j]=img.get(i,i)[0]/255;
-                System.out.printf("%03f ",image[i][j]);
+                image[i][j]=img.get(i,j)[0]/255;
+               // System.out.printf("%.2f ",image[i][j]);
             }
             System.out.println();
         }
-
-
-
-
-        /*
-        HighGui.namedWindow("image",HighGui.WINDOW_AUTOSIZE);
-        HighGui.imshow("image",img);
+        HighGui.namedWindow("image1",HighGui.WINDOW_AUTOSIZE);
+        HighGui.imshow("image1",img);
         HighGui.waitKey(0);
-        HighGui.destroyWindow("image");
-        */
+        HighGui.destroyWindow("image1");
+
+        Mat img2 = new Mat(image.length-1,image[0].length-1,Imgcodecs.IMREAD_GRAYSCALE);
+        for (int i = 0; i <image.length ; i++) {
+            for (int j = 0; j < image[i].length; j++) {
+                double [] x = new double[1];
+                x[0]=image[i][j]*255;
+                img2.put(i,j,x);
+
+            }
+        }
 
 
+        HighGui.namedWindow("image2",HighGui.WINDOW_AUTOSIZE);
+        HighGui.imshow("image2",img2);
+        HighGui.waitKey(0);
+        HighGui.destroyWindow("image2");
 
     }
 }
