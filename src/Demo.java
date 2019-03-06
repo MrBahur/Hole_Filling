@@ -11,12 +11,26 @@ public class Demo{
     public static void main(String args[]){
         System.out.println(Core.VERSION);
         Mat img = Imgcodecs.imread("C:\\Users\\matan anavi\\Desktop\\programing\\Excercise\\Hole_Filling\\src\\test2.png",Imgcodecs.IMREAD_GRAYSCALE);
-        HighGui.namedWindow("check",HighGui.WINDOW_AUTOSIZE);
-        HighGui.imshow("check",img);
-        HighGui.waitKey();
-        HighGui.destroyWindow("check");
+        Double [][] image = new Double[img.rows()][img.cols()];
+        for (int i = 0; i <img.rows() ; i++) {
+            for (int j = 0; j <img.cols() ; j++) {
+                image[i][j]=img.get(i,i)[0]/255;
+                System.out.printf("%03f ",image[i][j]);
+            }
+            System.out.println();
+        }
 
 
-        System.out.println("wait here");
+
+
+        /*
+        HighGui.namedWindow("image",HighGui.WINDOW_AUTOSIZE);
+        HighGui.imshow("image",img);
+        HighGui.waitKey(0);
+        HighGui.destroyWindow("image");
+        */
+
+
+
     }
 }
