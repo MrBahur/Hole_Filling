@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bf6185b-2f69-47be-a5fc-00aab445e617" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ImageHandle/HoleFiller.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ImageHandle/HoleFillerFourConnected.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageHandle/MyImage.java" afterPath="$PROJECT_DIR$/src/ImageHandle/MyImage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NumericFunctions/Function.java" afterPath="$PROJECT_DIR$/src/NumericFunctions/Function.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NumericFunctions/WeightedAverage.java" afterPath="$PROJECT_DIR$/src/NumericFunctions/WeightedAverage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageHandle/HoleFiller.java" afterPath="$PROJECT_DIR$/src/ImageHandle/HoleFiller.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,15 +68,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HoleFiller.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HoleFiller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageHandle/HoleFiller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+            <state relative-caret-position="238">
+              <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#217#218#0" expanded="true" />
-                <element signature="e#243#244#0" expanded="true" />
+                <element signature="e#199#200#0" expanded="true" />
+                <element signature="e#225#226#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HoleFillerFourConnected.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ImageHandle/HoleFillerFourConnected.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="742">
+              <caret line="66" column="9" lean-forward="false" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#325#326#0" expanded="true" />
+                <element signature="e#349#350#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -142,6 +154,7 @@
         <option value="$PROJECT_DIR$/src/NumericFunctions/WeightedAverage.java" />
         <option value="$PROJECT_DIR$/src/NumericFunctions/Function.java" />
         <option value="$PROJECT_DIR$/src/ImageHandle/HoleFiller.java" />
+        <option value="$PROJECT_DIR$/src/ImageHandle/HoleFillerFourConnected.java" />
       </list>
     </option>
   </component>
@@ -456,7 +469,14 @@
       <option name="project" value="LOCAL" />
       <updated>1552053102122</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added Hole Filler, now need to implement hole finder and boundary finder for both 4 and 8 type of pixels">
+      <created>1552055331869</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1552055331869</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -505,7 +525,8 @@
     <MESSAGE value="reconstructing an image MAT from the 0 to 1 array" />
     <MESSAGE value="also was able to close the program properlu this time" />
     <MESSAGE value="added Weight function and starting to work on image handle" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Weight function and starting to work on image handle" />
+    <MESSAGE value="added Hole Filler, now need to implement hole finder and boundary finder for both 4 and 8 type of pixels" />
+    <option name="LAST_COMMIT_MESSAGE" value="added Hole Filler, now need to implement hole finder and boundary finder for both 4 and 8 type of pixels" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -641,12 +662,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageHandle/HoleFiller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        <state relative-caret-position="238">
+          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#217#218#0" expanded="true" />
-            <element signature="e#243#244#0" expanded="true" />
+            <element signature="e#199#200#0" expanded="true" />
+            <element signature="e#225#226#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageHandle/HoleFillerFourConnected.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="742">
+          <caret line="66" column="9" lean-forward="false" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#325#326#0" expanded="true" />
+            <element signature="e#349#350#0" expanded="true" />
           </folding>
         </state>
       </provider>

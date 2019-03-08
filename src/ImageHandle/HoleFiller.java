@@ -1,14 +1,14 @@
 package ImageHandle;
 
-import NumericFunctions.WeightFunction;
+import NumericFunctions.Function;
 import javafx.util.Pair;
 
 import java.util.Set;
 
 public abstract class HoleFiller {
-    private WeightFunction w;
+    private Function w;
 
-    public HoleFiller(WeightFunction w) {
+    public HoleFiller(Function w) {
         this.w = w;
     }
 
@@ -39,11 +39,12 @@ public abstract class HoleFiller {
         double bot = 0;
         for (Pair<Integer, Integer> pair : boundary) {
             try {
-                top += (w.calculateResult(p, pair)*image[pair.getKey()][pair.getValue()]);
+                top += w.calculateResult(p, pair)*image[pair.getKey()][pair.getValue()];
                 bot += w.calculateResult(p,pair);
             }
             catch (Exception e){
                 System.out.println(e.getMessage());
+                return 0;//need to indicate that the algorithm failed for some reason
             }
         }
         return top/bot;
