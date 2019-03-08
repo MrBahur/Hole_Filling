@@ -4,16 +4,11 @@ import NumericFunctions.Function;
 import NumericFunctions.WeightedAverage;
 import javafx.util.Pair;
 
-import java.awt.*;
-import java.lang.reflect.Array;
-import java.util.ArrayDeque;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Set;
 
-public class HoleFillerFourConnected extends HoleFiller {
+public class HoleFillerEightConnected extends HoleFiller {
 
-    public HoleFillerFourConnected(Function w) {
+    public HoleFillerEightConnected(Function w) {
         super(w);
     }
 
@@ -40,28 +35,39 @@ public class HoleFillerFourConnected extends HoleFiller {
                     if(j+1<imagePixels[i].length&&imagePixels[i][j+1]==-1){
                         boundary.add(new Pair<>(i,j));
                     }
+                    if(j-1>0&&i-1>0&&imagePixels[i-1][j-1]==-1){
+                        boundary.add(new Pair<>(i,j));
+                    }
+                    if(i-1>0&&j+1<imagePixels[i].length&&imagePixels[i-1][j+1]==-1){
+                        boundary.add(new Pair<>(i,j));
+                    }
+                    if(j-1>0&&i+1<imagePixels[i].length&&imagePixels[i+1][j-1]==-1){
+                        boundary.add(new Pair<>(i,j));
+                    }
+                    if(i+1<imagePixels[i].length&&j+1<imagePixels[i].length&&imagePixels[i+1][j+1]==-1){
+                        boundary.add(new Pair<>(i,j));
+                    }
                 }
             }
 
         }
     }
-
-//    public static void main(String[] args) {
-//        double[][] y = new double[100][100];
-//        for (int i = 0; i < 100; i++) {
-//            for (int j = 0; j <100 ; j++) {
+//        public static void main(String[] args) {
+//        double[][] y = new double[50][50];
+//        for (int i = 0; i < 50; i++) {
+//            for (int j = 0; j <50 ; j++) {
 //                if(i>10 && i<15 && j>30 && j<35){
 //                    y[i][j]=-1;
 //                }
 //                else{
-//                    y[i][j]=0;
+//                    y[i][j]=Math.random();
 //                }
 //            }
 //        }
 //
 //        try{
 //            MyImage x = new MyImage(y);
-//            HoleFiller f= new HoleFillerFourConnected(new WeightedAverage());
+//            HoleFiller f= new HoleFillerEightConnected(new WeightedAverage());
 //            f.findHoleAndBoundary(x);
 //            System.out.println("Hole:\n-------------------------------");
 //            for (Pair p:x.getHole() ) {
@@ -72,6 +78,22 @@ public class HoleFillerFourConnected extends HoleFiller {
 //                System.out.println("x:"+p.getKey()+"   y:"+p.getValue());
 //            }
 //
+//            double[][] d = x.getImage();
+//            System.out.println("before:");
+//            for (int i = 0; i <50 ; i++) {
+//                for (int j = 0; j <50 ; j++) {
+//                    System.out.printf("%.2f ",d[i][j]);
+//                }
+//                System.out.println();
+//            }
+//            f.fillHole(x);
+//            System.out.println("after");
+//            for (int i = 0; i <50 ; i++) {
+//                for (int j = 0; j <50 ; j++) {
+//                    System.out.printf("%.2f ",d[i][j]);
+//                }
+//                System.out.println();
+//            }
 //        }catch (Exception e){
 //            e.printStackTrace();
 //        }
