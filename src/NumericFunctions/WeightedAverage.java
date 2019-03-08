@@ -45,17 +45,17 @@ public class WeightedAverage extends WeightFunction {
     }
 
     @Override
-    public double calculateResult(Pair <Double,Double>... arguments) throws Exception {
+    public double calculateResult(Pair <Integer,Integer>... arguments) throws Exception {
         checkInput(arguments);
         return (1/(Math.pow(distance(arguments[0],arguments[1]),z)+epsilon));
     }
 
-    private double distance(Pair<Double,Double> x, Pair<Double,Double> y){
+    private double distance(Pair<Integer,Integer> x, Pair<Integer,Integer> y){
         return Math.pow((Math.pow(x.getKey()-y.getKey(),2)+Math.pow(x.getValue()-y.getValue(),2)),0.5);
     }
 
 
-    private void checkInput(Pair<Double, Double>[] arguments) throws Exception{
+    private void checkInput(Pair<Integer, Integer>[] arguments) throws Exception{
         checkNumOfArguments(arguments);
         if(arguments==null||
                 arguments[0]==null||arguments[1]==null||
