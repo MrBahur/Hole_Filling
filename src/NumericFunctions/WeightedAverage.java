@@ -11,9 +11,9 @@ public class WeightedAverage extends WeightFunction {
     private double z;
     private double epsilon;
 
-    public WeightedAverage(double z, double epsilon) throws Exception{
+    public WeightedAverage(double z, double epsilon) throws Exception {
         super(2);
-        if(epsilon==0){
+        if (epsilon == 0) {
             throw new IllegalArgumentException("epsilon must be greater then 0");
         }
         this.z = z;
@@ -36,32 +36,32 @@ public class WeightedAverage extends WeightFunction {
         this.epsilon = epsilon;
     }
 
-    public WeightedAverage(double z)throws Exception {
-        this(z,0.1);
+    public WeightedAverage(double z) throws Exception {
+        this(z, 0.1);
     }
 
-    public WeightedAverage()throws Exception {
+    public WeightedAverage() throws Exception {
         this(2);
     }
 
     @Override
-    public double calculateResult(Pair <Integer,Integer>... arguments) throws Exception {
+    @SuppressWarnings("unchecked")
+    public double calculateResult(Pair<Integer, Integer>... arguments) throws Exception {
         checkInput(arguments);
-        return (1/(Math.pow(distance(arguments[0],arguments[1]),z)+epsilon));
+        return (1 / (Math.pow(distance(arguments[0], arguments[1]), z) + epsilon));
     }
 
-    private double distance(Pair<Integer,Integer> x, Pair<Integer,Integer> y){
-        return Math.pow((Math.pow(x.getKey()-y.getKey(),2)+Math.pow(x.getValue()-y.getValue(),2)),0.5);
+    private double distance(Pair<Integer, Integer> x, Pair<Integer, Integer> y) {
+        return Math.pow((Math.pow(x.getKey() - y.getKey(), 2) + Math.pow(x.getValue() - y.getValue(), 2)), 0.5);
     }
 
 
-    private void checkInput(Pair<Integer, Integer>[] arguments) throws Exception{
+    private void checkInput(Pair<Integer, Integer>[] arguments) throws Exception {
         checkNumOfArguments(arguments);
-        if(arguments==null||
-                arguments[0]==null||arguments[1]==null||
-                arguments[0].getKey()==null||arguments[0].getValue()==null||
-                arguments[1].getKey()==null||arguments[1].getValue()==null)
-        {
+        if (arguments == null ||
+                arguments[0] == null || arguments[1] == null ||
+                arguments[0].getKey() == null || arguments[0].getValue() == null ||
+                arguments[1].getKey() == null || arguments[1].getValue() == null) {
             throw new NullPointerException();
         }
     }

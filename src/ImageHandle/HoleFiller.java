@@ -14,7 +14,7 @@ public abstract class HoleFiller {
 
     abstract void findHoleAndBoundary(MyImage image);
 
-    void fillHole(MyImage image) throws Exception {
+    public void fillHole(MyImage image) throws Exception {
         if (image == null) {
             throw new NullPointerException();
         }
@@ -34,20 +34,20 @@ public abstract class HoleFiller {
 
     }
 
-    private double calculateIValue(Pair<Integer,Integer> p, Set<Pair<Integer, Integer>> boundary, double[][] image) {
+    @SuppressWarnings("unchecked")
+    private double calculateIValue(Pair<Integer, Integer> p, Set<Pair<Integer, Integer>> boundary, double[][] image) {
         double top = 0;
         double bot = 0;
         for (Pair<Integer, Integer> pair : boundary) {
             try {
-                top += w.calculateResult(p, pair)*image[pair.getKey()][pair.getValue()];
-                bot += w.calculateResult(p,pair);
-            }
-            catch (Exception e){
+                top += w.calculateResult(p, pair) * image[pair.getKey()][pair.getValue()];
+                bot += w.calculateResult(p, pair);
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
                 return 0;//need to indicate that the algorithm failed for some reason
             }
         }
-        return top/bot;
+        return top / bot;
     }
 
 }
