@@ -7,12 +7,12 @@ import java.util.Set;
 
 public class MyImage {
     private double[][] image;
-    private Set <Pair<Integer,Integer>> hole;
-    private Set <Pair<Integer,Integer>> boundary;
+    private Set<Pair<Integer, Integer>> hole;
+    private Set<Pair<Integer, Integer>> boundary;
 
-    public MyImage(double[][] image) throws Exception{
+    public MyImage(double[][] image) throws Exception {
 
-        if(image == null){
+        if (image == null) {
             throw new NullPointerException();
         }
 
