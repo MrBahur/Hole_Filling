@@ -12,7 +12,7 @@ public abstract class HoleFiller {
         this.w = w;
     }
 
-    abstract void findHoleAndBoundary(MyImage image);
+    public abstract void findHoleAndBoundary(MyImage image);
 
     public void fillHole(MyImage image) throws Exception {
         if (image == null) {

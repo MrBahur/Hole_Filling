@@ -6,6 +6,7 @@ import ImageHandle.HoleFillerFourConnected;
 import ImageHandle.MyImage;
 import NumericFunctions.Function;
 import NumericFunctions.WeightedAverage;
+import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 
@@ -19,6 +20,10 @@ public class Main {
     private HoleFiller holeFiller;
     private Converter converter;
     private double[][] image;
+
+    static {
+        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+    }
 
     public Main() {
     }
@@ -38,15 +43,17 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("how do you want to call your fixed image?");
         name = scanner.next();
-        Imgcodecs.imwrite(name,image);
+        Imgcodecs.imwrite(name+".png",image);
     }
 
     private void fixImage() {
         try {
             MyImage image = new MyImage(this.image);
+            this.holeFiller.findHoleAndBoundary(image);
             this.holeFiller.fillHole(image);
         }catch(Exception e){
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -66,7 +73,7 @@ public class Main {
             maskPath = scanner.next();
             image = Imgcodecs.imread(imagePath, Imgcodecs.IMREAD_GRAYSCALE);
             mask = Imgcodecs.imread(maskPath, Imgcodecs.IMREAD_GRAYSCALE);
-            if (image.rows() != mask.rows() || image.cols() != mask.rows()) {
+            if (image.rows() != mask.rows() || image.cols() != mask.cols()) {
                 System.out.println("image and mask size are different please try again");
                 gotImages=false;
             }

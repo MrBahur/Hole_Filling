@@ -13,7 +13,7 @@ public class HoleFillerEightConnected extends HoleFiller {
     }
 
     @Override
-    void findHoleAndBoundary(MyImage image) {
+    public void findHoleAndBoundary(MyImage image) {
         Set<Pair<Integer, Integer>> hole = image.getHole();
         Set<Pair<Integer, Integer>> boundary = image.getBoundary();
         double[][] imagePixels = image.getImage();
@@ -41,10 +41,10 @@ public class HoleFillerEightConnected extends HoleFiller {
                     if (!isBoundary && i - 1 > 0 && j + 1 < imagePixels[i].length && imagePixels[i - 1][j + 1] == -1) {
                         isBoundary = true;
                     }
-                    if (!isBoundary && j - 1 > 0 && i + 1 < imagePixels[i].length && imagePixels[i + 1][j - 1] == -1) {
+                    if (!isBoundary && j - 1 > 0 && i + 1 < imagePixels.length && imagePixels[i + 1][j - 1] == -1) {
                         isBoundary = true;
                     }
-                    if (!isBoundary && i + 1 < imagePixels[i].length && j + 1 < imagePixels[i].length && imagePixels[i + 1][j + 1] == -1) {
+                    if (!isBoundary && i + 1 < imagePixels.length && j + 1 < imagePixels[i].length && imagePixels[i + 1][j + 1] == -1) {
                         isBoundary = true;
                     }
                     if (isBoundary) {

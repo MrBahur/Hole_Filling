@@ -18,7 +18,7 @@ public class HoleFillerFourConnected extends HoleFiller {
     }
 
     @Override
-    void findHoleAndBoundary(MyImage image) {
+    public void findHoleAndBoundary(MyImage image) {
         Set<Pair<Integer, Integer>> hole = image.getHole();
         Set<Pair<Integer, Integer>> boundary = image.getBoundary();
         double[][] imagePixels = image.getImage();
